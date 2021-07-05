@@ -2,12 +2,15 @@ import turtle
 from turtle import Screen, Turtle
 from random import  randint
 import time
+
+level = 0
+
 turtle.colormode(255)
 #Screen
 screen = Screen()
 screen.tracer(0)
 screen.setup(700,600)
-screen.screensize(700,600)
+# screen.screensize(700,700)
 
 #Create The Turtle
 my_turtle = Turtle()
@@ -15,6 +18,13 @@ my_turtle.penup()
 my_turtle.shape("turtle")
 my_turtle.setheading(90)
 my_turtle.setposition(0,-200)
+
+#Create The Level Text
+level_text = Turtle()
+level_text.penup()
+level_text.hideturtle()
+level_text.setpos(-280,260)
+level_text.write(f"Level: {level}", True, align="center", font=("Arial", 30, "normal"))
 
 car_list = []
 
