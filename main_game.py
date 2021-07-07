@@ -20,7 +20,7 @@ level_text = Scoreboard(level=1)
 screen.listen()
 screen.onkey(my_turtle.up, "Up")
 
-#Create The Blocks/Cars
+#Generate the initial set of cars/blocks
 for i in range(20):
 	cars = Cars()
 
