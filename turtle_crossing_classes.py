@@ -15,7 +15,7 @@ class MainTurtle(Turtle):
 
 	def up(self):
 		self.forward(10)
-		print("something")
+
 
 class Cars(Turtle):
 	car_list = []
@@ -37,7 +37,14 @@ class Cars(Turtle):
 		for car in self.car_list:
 			car.forward(INIT_CAR_SPEED + 20)
 
-
+class Scoreboard(Turtle):
+	def __init__(self,level):
+		self.level = level
+		super().__init__()
+		self.penup()
+		self.hideturtle()
+		self.setpos(-280, 260)
+		self.write(f"Level: {self.level}", True, align="center", font=("Arial", 30, "normal"))
 
 
 
