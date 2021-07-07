@@ -1,6 +1,5 @@
 import turtle
 from turtle import Screen, Turtle
-from random import  randint
 from turtle_crossing_classes import *
 import time
 TURTLE_START_POS = (0, -270)
@@ -24,53 +23,50 @@ level_text.hideturtle()
 level_text.setpos(-280, 260)
 level_text.write(f"Level: {level}", True, align="center", font=("Arial", 30, "normal"))
 
-car_list = []
-
 #Create The Blocks/Cars
-def generate_cars():
-	for i in range(20):
-		car = Turtle()
-		car.penup()
-		car.shape("square")
-		car.shapesize(0.8, 2)
-		car.setpos(randint(350,800), randint(-500,500))
-		car.setheading(180)
-		car.fillcolor(randint(0, 255), randint(0, 255), randint(0, 255))
-		car_list.append(car)
+for i in range(20):
+	cars = Cars()
+# def generate_cars():
+# 	for i in range(20):
+# 		car = Turtle()
+# 		car.penup()
+# 		car.shape("square")
+# 		car.shapesize(0.8, 2)
+# 		car.setpos(randint(350,800), randint(-500,500))
+# 		car.setheading(180)
+# 		car.fillcolor(randint(0, 255), randint(0, 255), randint(0, 255))
+# 		car_list.append(car)
 
 
-def car_move(car):
-	car.forward(INIT_CAR_SPEED)
+# def car_move(car):
+# 	car.forward(INIT_CAR_SPEED)
 
 
-def car_speed():
-	for car in car_list:
-		car.forward(INIT_CAR_SPEED + 20)
 
-
-generate_cars()
-
-
+# generate_cars()
 
 
 #Control The Turtle
+
 screen.listen()
+
+
 screen.onkey(my_turtle.up(), "Up")
 
 
 game_on = True
 
 while game_on:
-	if car_list[-1].xcor() < 0:
-		for car in car_list:
+	if cars.car_list[-1].xcor() < 0:
+		for car in cars.car_list:
 			car.clear()
-		generate_cars()
+		cars = Cars()
 	screen.update()
 	# Check For Collision
-	for car in car_list:
+	for car in cars.car_list:
 		if my_turtle.distance(car) < 40:
 			game_on = False
-		car_move(car)
+		cars.car_move(car)
 	#Check if Turtle made it to next level
 	if my_turtle.ycor() >= 270:
 		level += 1
@@ -78,7 +74,7 @@ while game_on:
 		level_text.clear()
 		level_text.setpos(-280, 260)
 		level_text.write(f"Level: {level}", True, align="center", font=("Arial", 30, "normal"))
-		car_speed()
+		cars.car_speed()
 	time.sleep(0.1)
 
 screen.exitonclick()
