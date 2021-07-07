@@ -21,7 +21,6 @@ screen.listen()
 screen.onkey(my_turtle.up, "Up")
 
 #Generate the initial set of cars/blocks
-
 for i in range(20):
 	cars = Cars()
 
@@ -39,7 +38,8 @@ while game_on:
 	if cars.car_list[-1].xcor() < 0:
 		for car in cars.car_list:
 			car.clear()
-		cars = Cars()
+		for i in range(20):
+			cars = Cars()
 	# Check For Collision
 	for car in cars.car_list:
 		if my_turtle.distance(car) < 30:
