@@ -79,7 +79,7 @@ while game_on:
 			game_on = False
 		car_move(car)
 	#Check if Turtle made it to next level
-	if my_turtle.ycor() >= 10:
+	if my_turtle.ycor() >= 270:
 		level += 1
 		my_turtle.setposition(TURTLE_START_POS)
 		level_text.clear()
