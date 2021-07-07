@@ -1,6 +1,7 @@
 import turtle
 from turtle import Screen, Turtle
 from random import  randint
+from turtle_crossing_classes import *
 import time
 TURTLE_START_POS = (0, -270)
 INIT_CAR_SPEED = 10
@@ -14,11 +15,7 @@ screen.setup(700,600)
 # screen.screensize(700,700)
 
 #Create The Turtle
-my_turtle = Turtle()
-my_turtle.penup()
-my_turtle.shape("turtle")
-my_turtle.setheading(90)
-my_turtle.setposition(TURTLE_START_POS)
+my_turtle = MainTurtle()
 
 #Create The Level Text
 level_text = Turtle()
@@ -57,12 +54,8 @@ generate_cars()
 
 
 #Control The Turtle
-def up():
-	my_turtle.forward(10)
-	print(my_turtle.ycor())
-
 screen.listen()
-screen.onkey(up, "Up")
+screen.onkey(my_turtle.up(), "Up")
 
 
 game_on = True
