@@ -1,11 +1,10 @@
 import turtle
-from turtle import Screen, Turtle
 from turtle_crossing_classes import *
 import time
 TURTLE_START_POS = (0, -270)
 INIT_CAR_SPEED = 10
-
 turtle.colormode(255)
+
 #Screen
 screen = Screen()
 screen.tracer(0)
@@ -17,34 +16,13 @@ my_turtle = MainTurtle()
 #Create The Level Text
 level_text = Scoreboard(level=1)
 
-
-#Create The Blocks/Cars
-for i in range(20):
-	cars = Cars()
-# def generate_cars():
-# 	for i in range(20):
-# 		car = Turtle()
-# 		car.penup()
-# 		car.shape("square")
-# 		car.shapesize(0.8, 2)
-# 		car.setpos(randint(350,800), randint(-500,500))
-# 		car.setheading(180)
-# 		car.fillcolor(randint(0, 255), randint(0, 255), randint(0, 255))
-# 		car_list.append(car)
-
-
-# def car_move(car):
-# 	car.forward(INIT_CAR_SPEED)
-
-
-
-# generate_cars()
-
-
 #Control The Turtle
 screen.listen()
 screen.onkey(my_turtle.up, "Up")
 
+#Create The Blocks/Cars
+for i in range(20):
+	cars = Cars()
 
 game_on = True
 
