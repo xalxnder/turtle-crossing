@@ -51,3 +51,12 @@ class Scoreboard(Turtle):
         self.write(
             f"Level: {self.level}", True, align="center", font=("Arial", 30, "normal")
         )
+
+    def reset(self, my_turtle):
+        self.level += 1
+        my_turtle.setposition(TURTLE_START_POS)
+        self.clear()
+        self.setpos(-280, 260)
+        self.write(
+            f"Level: {self.level}", True, align="center", font=("Arial", 30, "normal")
+        )
